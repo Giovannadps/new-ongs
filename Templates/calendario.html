@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calendário - New ONGs</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="home-body">
+
+    <main class="calendar-page">
+
+        <a href="/home" class="watch-back">
+            ←
+        </a>
+
+        <div class="calendar-header">
+
+            <h1>
+                Calendário
+            </h1>
+
+            <p>
+                Confira as próximas palestras e ações do New ONGs.
+            </p>
+
+        </div>
+
+
+        <section class="calendar-event">
+
+            <div class="calendar-date">
+                <strong>25</strong>
+                <span>AGO</span>
+            </div>
+
+            <div class="calendar-event-info">
+
+                <span class="calendar-label">
+                    PALESTRA
+                </span>
+
+                <h2>
+                    Saúde sexual e prevenção
+                </h2>
+
+                <p>
+                    📍 São Mateus
+                </p>
+
+                <p>
+                    🕐 14:00
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="calendar-event">
+
+            <div class="calendar-date">
+                <strong>24</strong>
+                <span>AGO</span>
+            </div>
+
+            <div class="calendar-event-info">
+
+                <span class="calendar-label van">
+                    VAN DA SAÚDE
+                </span>
+
+                <h2>
+                    Testes e atendimento à comunidade
+                </h2>
+
+                <p>
+                    📍 São Mateus
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="calendar-event">
+
+            <div class="calendar-date">
+                <strong>26</strong>
+                <span>AGO</span>
+            </div>
+
+            <div class="calendar-event-info">
+
+                <span class="calendar-label van">
+                    VAN DA SAÚDE
+                </span>
+
+                <h2>
+                    Testes e atendimento à comunidade
+                </h2>
+
+                <p>
+                    📍 São Mateus
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="calendar-event">
+
+            <div class="calendar-date">
+                <strong>28</strong>
+                <span>AGO</span>
+            </div>
+
+            <div class="calendar-event-info">
+
+                <span class="calendar-label van">
+                    VAN DA SAÚDE
+                </span>
+
+                <h2>
+                    Testes e atendimento à comunidade
+                </h2>
+
+                <p>
+                    📍 São Mateus
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <nav class="bottom-navigation">
+
+        <a href="/home" class="nav-item">
+            <span>⌂</span>
+            <small>Home</small>
+        </a>
+
+        <a href="{{ url_for('pesquisa') }}" class="nav-item">
+            <span>⌕</span>
+            <small>Pesquisa</small>
+        </a>
+
+        <a href="{{ url_for('notificacoes') }}" class="nav-item">
+            <span>♧</span>
+            <small>Notificações</small>
+        </a>
+
+        
+        <a href="{{ url_for('perfil') }}" class="nav-item">
+            <span>○</span>
+            <small>Perfil</small>
+        </a>
+
+    </nav>
+
+</body>
+
+</html>

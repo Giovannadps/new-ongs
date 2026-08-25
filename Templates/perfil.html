@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Perfil - New ONGs</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="home-body">
+
+    <main class="profile-page">
+
+        <a href="/home" class="watch-back">
+            ←
+        </a>
+
+        <div class="profile-header">
+
+            <div class="profile-avatar">
+                ●
+            </div>
+
+            <h1>{{ usuario["username"] }}</h1>
+
+            <p>{{ usuario["email"] }}</p>
+
+        </div>
+
+
+        <section class="profile-card">
+
+            <div class="profile-item">
+                <span>👤</span>
+
+                <div>
+                    <small>Usuário</small>
+                    <strong>{{ usuario["username"] }}</strong>
+                </div>
+            </div>
+
+
+            <div class="profile-item">
+                <span>✉</span>
+
+                <div>
+                    <small>E-mail</small>
+                    <strong>{{ usuario["email"] }}</strong>
+                </div>
+            </div>
+
+
+            <div class="profile-item">
+                <span>🎂</span>
+
+                <div>
+                    <small>Data de nascimento</small>
+                    <strong>{{ usuario["birthdate"] }}</strong>
+                </div>
+            </div>
+
+        </section>
+
+
+        <a href="/logout" class="logout-button">
+            Sair da conta
+        </a>
+
+    </main>
+
+    <nav class="bottom-navigation">
+
+        <a href="/home" class="nav-item">
+    
+            <span>
+                ⌂
+            </span>
+    
+            <small>
+                Home
+            </small>
+    
+        </a>
+    
+    
+        <a href="/pesquisa" class="nav-item">
+    
+            <span>
+                ⌕
+            </span>
+    
+            <small>
+                Pesquisa
+            </small>
+    
+        </a>
+    
+    
+        <a href="{{ url_for('notificacoes') }}" class="nav-item">
+    
+            <span>
+                ♧
+            </span>
+    
+            <small>
+                Notificações
+            </small>
+    
+        </a>
+    
+    
+        <a href="#" class="nav-item">
+    
+            <span>
+                ♡
+            </span>
+    
+            <small>
+                Chat
+            </small>
+    
+        </a>
+    
+    
+        <a href="{{ url_for('perfil') }}" class="nav-item active">
+    
+            <span>
+                ○
+            </span>
+    
+            <small>
+                Perfil
+            </small>
+    
+        </a>
+    
+    </nav>
+    
+</body>
+
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Sugestões e Feedback - New ONGs</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body class="home-body">
+
+    <main class="feedback-page">
+
+        <a href="/home" class="watch-back">
+            ←
+        </a>
+
+
+        <div class="feedback-header">
+
+            <div class="feedback-icon">
+                💡
+            </div>
+
+            <h1>
+                Sugestões e Feedback
+            </h1>
+
+            <p>
+                Sua opinião ajuda a melhorar o New ONGs.
+            </p>
+
+        </div>
+
+
+        {% if enviado %}
+
+            <section class="feedback-success">
+
+                <div>
+                    ✓
+                </div>
+
+                <h2>
+                    Obrigado pela sua contribuição!
+                </h2>
+
+                <p>
+                    Sua mensagem foi enviada com sucesso.
+                </p>
+
+                <a href="/home">
+                    Voltar para o início
+                </a>
+
+            </section>
+
+
+        {% else %}
+
+            <form
+                method="POST"
+                action="/feedback"
+                class="feedback-form"
+            >
+
+                <label for="tipo">
+                    Tipo de mensagem
+                </label>
+
+                <select
+                    id="tipo"
+                    name="tipo"
+                    required
+                >
+
+                    <option value="">
+                        Selecione uma opção
+                    </option>
+
+                    <option value="Sugestão">
+                        💡 Sugestão
+                    </option>
+
+                    <option value="Problema">
+                        🐛 Relatar um problema
+                    </option>
+
+                    <option value="Elogio">
+                        ❤️ Elogio
+                    </option>
+
+                    <option value="Outro">
+                        💬 Outro
+                    </option>
+
+                </select>
+
+
+                <label for="mensagem">
+                    Sua mensagem
+                </label>
+
+                <textarea
+                    id="mensagem"
+                    name="mensagem"
+                    rows="6"
+                    placeholder="Conte para nós o que você pensa..."
+                    required
+                ></textarea>
+
+
+                <button
+                    type="submit"
+                    class="feedback-submit"
+                >
+                    Enviar feedback
+                </button>
+
+            </form>
+
+        {% endif %}
+
+    </main>
+
+
+    <nav class="bottom-navigation">
+
+        <a href="/home" class="nav-item">
+            <span>⌂</span>
+            <small>Home</small>
+        </a>
+
+
+        <a href="/pesquisa" class="nav-item">
+            <span>⌕</span>
+            <small>Pesquisa</small>
+        </a>
+
+
+        <a
+            href="{{ url_for('notificacoes') }}"
+            class="nav-item"
+        >
+            <span>♧</span>
+            <small>Notificações</small>
+        </a>
+
+
+        <a href="/chat" class="nav-item">
+            <span>♡</span>
+            <small>Chat</small>
+        </a>
+
+
+        <a
+            href="{{ url_for('perfil') }}"
+            class="nav-item"
+        >
+            <span>○</span>
+            <small>Perfil</small>
+        </a>
+
+    </nav>
+
+</body>
+
+</html>

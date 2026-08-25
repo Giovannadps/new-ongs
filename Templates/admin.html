@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Painel Administrativo - New ONGs</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="professional-body">
+
+    <main class="admin-page">
+
+        <a href="/profissional" class="professional-back">
+            ←
+        </a>
+
+        <img
+            src="{{ url_for('static', filename='img/logo.png') }}"
+            alt="Logo New ONGs"
+            class="professional-logo"
+        >
+
+        <h1>Painel Administrativo</h1>
+
+        <p class="admin-welcome">
+            Bem-vinda à área administrativa do New ONGs.
+        </p>
+
+        <a href="/admin/adicionar" class="admin-add-button">
+            + Adicionar palestra
+        </a>
+
+        <h2>Palestras publicadas</h2>
+
+        {% if palestras %}
+
+            <div class="admin-list">
+
+                {% for palestra in palestras %}
+
+                    <div class="admin-card">
+
+                        <h3>{{ palestra["titulo"] }}</h3>
+
+                        <p>{{ palestra["categoria"] }}</p>
+
+                        <div class="admin-card-actions">
+                            <button>Editar</button>
+                            <button>Excluir</button>
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <p>Nenhuma palestra publicada ainda.</p>
+
+        {% endif %}
+
+    </main>
+
+</body>
+
+</html>

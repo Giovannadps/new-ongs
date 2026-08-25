@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Chat - New ONGs</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body class="home-body">
+
+    <main class="chat-page">
+
+        <a href="/home" class="watch-back">
+            ←
+        </a>
+
+
+        <div class="chat-header">
+
+            <div class="chat-icon">
+                ♡
+            </div>
+
+            <h1>
+                Chat
+            </h1>
+
+            <p>
+                Converse e tire suas dúvidas com a equipe New ONGs.
+            </p>
+
+        </div>
+
+
+        <section class="chat-empty">
+
+            <div class="chat-empty-icon">
+                💬
+            </div>
+
+            <h2>
+                O chat estará disponível em breve
+            </h2>
+
+            <p>
+                Estamos preparando um espaço seguro para
+                comunicação e acolhimento dentro do New ONGs.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <nav class="bottom-navigation">
+
+        <a href="/home" class="nav-item">
+            <span>⌂</span>
+            <small>Home</small>
+        </a>
+
+
+        <a href="/pesquisa" class="nav-item">
+            <span>⌕</span>
+            <small>Pesquisa</small>
+        </a>
+
+
+        <a href="{{ url_for('notificacoes') }}" class="nav-item">
+            <span>♧</span>
+            <small>Notificações</small>
+        </a>
+
+
+        <a href="/chat" class="nav-item active">
+            <span>♡</span>
+            <small>Chat</small>
+        </a>
+
+
+        <a href="{{ url_for('perfil') }}" class="nav-item">
+            <span>○</span>
+            <small>Perfil</small>
+        </a>
+
+    </nav>
+
+</body>
+
+</html>

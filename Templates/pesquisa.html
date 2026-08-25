@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pesquisa - New ONGs</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="home-body">
+
+    <main class="search-page">
+
+        <a href="/home" class="watch-back">
+            ←
+        </a>
+
+        <h1>Pesquisar</h1>
+
+        <form method="GET" action="/pesquisa" class="search-page-form">
+
+            <input
+                type="text"
+                name="q"
+                value="{{ termo }}"
+                placeholder="Pesquisar palestras, temas..."
+                autocomplete="off"
+            >
+
+            <button type="submit">
+                ⌕
+            </button>
+
+        </form>
+
+
+        <section class="search-results">
+
+            {% if termo %}
+
+                <h2>Resultados para "{{ termo }}"</h2>
+
+            {% else %}
+
+                <h2>Todas as palestras</h2>
+
+            {% endif %}
+
+
+            <div class="videos-grid">
+
+                {% for palestra in palestras %}
+
+                    <a
+                        href="/palestra/{{ palestra['id'] }}"
+                        class="video-card"
+                    >
+
+                        <div class="video-thumbnail">
+
+                            {% if palestra["capa_url"] %}
+
+                                <img
+                                    src="{{ palestra['capa_url'] }}"
+                                    alt="{{ palestra['titulo'] }}"
+                                >
+
+                            {% endif %}
+
+                            <div class="play-button">
+                                ▶
+                            </div>
+
+                        </div>
+
+
+                        <div class="video-info">
+
+                            <span class="video-category">
+                                {{ palestra["categoria"] }}
+                            </span>
+
+                            <h3>
+                                {{ palestra["titulo"] }}
+                            </h3>
+
+                            <p>
+                                {{ palestra["descricao"] }}
+                            </p>
+
+                        </div>
+
+                    </a>
+
+                {% else %}
+
+                    <p class="no-videos">
+                        Nenhuma palestra encontrada.
+                    </p>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <nav class="bottom-navigation">
+
+        <a href="/home" class="nav-item">
+    
+            <span>
+                ⌂
+            </span>
+    
+            <small>
+                Home
+            </small>
+    
+        </a>
+    
+    
+        <a href="/pesquisa" class="nav-item active">
+    
+            <span>
+                ⌕
+            </span>
+    
+            <small>
+                Pesquisa
+            </small>
+    
+        </a>
+    
+    
+        <a href="{{ url_for('notificacoes') }}" class="nav-item">
+    
+            <span>
+                ♧
+            </span>
+    
+            <small>
+                Notificações
+            </small>
+    
+        </a>
+    
+    
+        <a href="#" class="nav-item">
+    
+            <span>
+                ♡
+            </span>
+    
+            <small>
+                Chat
+            </small>
+    
+        </a>
+    
+    
+        <a href="{{ url_for('perfil') }}" class="nav-item">
+    
+            <span>
+                ○
+            </span>
+    
+            <small>
+                Perfil
+            </small>
+    
+        </a>
+    
+    </nav>
+    
+
+</body>
+
+</html>

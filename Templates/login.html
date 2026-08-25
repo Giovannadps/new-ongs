@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - New ONGs</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <main class="login-page">
+
+        <img src="{{ url_for('static', filename='img/logo.png') }}"
+             alt="Logo New ONGs"
+             class="login-logo">
+
+        <h1>Login</h1>
+
+        <form method="POST" action="/login">
+
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Nome"
+            >
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Senha"
+            >
+
+            <button type="submit">Log In</button>
+
+        </form>
+
+        <div class="login-or">ou</div>
+
+        <a href="/cadastro" class="create-account">Crie uma conta</a>
+
+        <a href="{{ url_for('profissional') }}" class="profissional-area">Área profissional</a>
+
+    </main>
+
+</body>
+</html>

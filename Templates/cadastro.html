@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Criar conta - New ONGs</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="profissional-body">
+
+    <main class="profissional-page">
+
+        <a href="/login" class="watch-back">
+            ←
+        </a>
+
+
+        <div class="profissional-header">
+
+            <div class="profissional-logo">
+                <img
+                    src="{{ url_for('static', filename='img/logo.png') }}"
+                    alt="New ONGs"
+                >
+            </div>
+
+            <h1>
+                Criar uma conta
+            </h1>
+
+            <p>
+                Escolha o tipo de conta que você deseja criar.
+            </p>
+
+        </div>
+
+
+        <div class="profissional-options">
+
+            <a href="/cadastro-usuario" class="professional-option">
+
+                <div class="profissional-option-icon">
+                    👤
+                </div>
+
+                <div class="profissional-option-text">
+
+                    <h2>
+                        Sou usuário
+                    </h2>
+
+                    <p>
+                        Crie uma conta para acessar
+                        palestras, conteúdos e recursos
+                        do New ONGs.
+                    </p>
+
+                </div>
+
+                <span class="profissional-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <a href="/cadastro-profissional" class="profissional-option">
+
+                <div class="profissional-option-icon">
+                    🩺
+                </div>
+
+                <div class="profissional-option-text">
+
+                    <h2>
+                        Sou profissional
+                    </h2>
+
+                    <p>
+                        Crie uma conta para profissionais
+                        responsáveis pelo conteúdo
+                        do New ONGs.
+                    </p>
+
+                </div>
+
+                <span class="profissional-arrow">
+                    →
+                </span>
+
+            </a>
+
+        </div>
+
+
+    </main>
+
+</body>
+
+</html>

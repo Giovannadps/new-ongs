@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Adicionar palestra - New ONGs</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="professional-body">
+
+    <main class="admin-page">
+
+        <a href="/admin" class="professional-back">
+            ←
+        </a>
+
+        <img
+            src="{{ url_for('static', filename='img/logo.png') }}"
+            alt="Logo New ONGs"
+            class="professional-logo"
+        >
+
+        <h1>Adicionar palestra</h1>
+
+        <form method="POST" action="/admin/adicionar">
+
+            <input
+                type="text"
+                name="titulo"
+                placeholder="Título da palestra"
+                required
+            >
+
+            <textarea
+                name="descricao"
+                placeholder="Descrição da palestra"
+                rows="5"
+                required
+            ></textarea>
+
+            <input
+                type="text"
+                name="categoria"
+                placeholder="Categoria"
+                required
+            >
+
+            <input
+                type="url"
+                name="video_url"
+                placeholder="Link do vídeo do YouTube"
+                required
+            >
+
+            <input
+                type="url"
+                name="capa_url"
+                placeholder="Link da imagem de capa (opcional)"
+            >
+
+            <button type="submit" class="admin-add-button">
+                Publicar palestra
+            </button>
+
+        </form>
+
+    </main>
+
+</body>
+
+</html>

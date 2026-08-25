@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Configurações - New ONGs</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body class="home-body">
+
+    <main class="settings-detail-page">
+
+        <a href="/configuracoes" class="watch-back">
+            ←
+        </a>
+
+
+        {% if secao == "conta" %}
+
+            <div class="settings-detail-header">
+                <div class="settings-detail-icon">👤</div>
+
+                <h1>
+                    Conta
+                </h1>
+
+                <p>
+                    Gerencie suas informações pessoais.
+                </p>
+            </div>
+
+
+            {% if mensagem %}
+                <div class="settings-message">
+                    {{ mensagem }}
+                </div>
+            {% endif %}
+
+
+            <form
+                method="POST"
+                class="settings-form"
+            >
+
+                <label>
+                    Nome de usuário
+                </label>
+
+                <input
+                    type="text"
+                    name="username"
+                    value="{{ usuario['username'] }}"
+                    required
+                >
+
+
+                <label>
+                    E-mail
+                </label>
+
+                <input
+                    type="email"
+                    name="email"
+                    value="{{ usuario['email'] }}"
+                    required
+                >
+
+
+                <label>
+                    Data de nascimento
+                </label>
+
+                <input
+                    type="date"
+                    name="birthdate"
+                    value="{{ usuario['birthdate'] }}"
+                    required
+                >
+
+
+                <button type="submit">
+                    Salvar alterações
+                </button>
+
+            </form>
+
+
+        {% elif secao == "acessibilidade" %}
+
+            <div class="settings-detail-header">
+                <div class="settings-detail-icon">♿</div>
+
+                <h1>
+                    Acessibilidade
+                </h1>
+
+                <p>
+                    Recursos pensados para tornar o New ONGs
+                    mais acessível.
+                </p>
+            </div>
+
+
+            <section class="settings-info-card">
+
+                <div class="settings-info-row">
+                    <strong>
+                        Texto e leitura
+                    </strong>
+
+                    <span>
+                        Em desenvolvimento
+                    </span>
+                </div>
+
+
+                <div class="settings-info-row">
+                    <strong>
+                        Contraste
+                    </strong>
+
+                    <span>
+                        Em desenvolvimento
+                    </span>
+                </div>
+
+
+                <div class="settings-info-row">
+                    <strong>
+                        Tamanho da fonte
+                    </strong>
+
+                    <span>
+                        Em desenvolvimento
+                    </span>
+                </div>
+
+            </section>
+
+
+        {% elif secao == "privacidade" %}
+
+            <div class="settings-detail-header">
+                <div class="settings-detail-icon">🔒</div>
+
+                <h1>
+                    Privacidade e segurança
+                </h1>
+
+                <p>
+                    Mantenha sua conta protegida.
+                </p>
+            </div>
+
+
+            {% if mensagem %}
+                <div class="settings-message">
+                    {{ mensagem }}
+                </div>
+            {% endif %}
+
+
+            <form
+                method="POST"
+                class="settings-form"
+            >
+
+                <label>
+                    Senha atual
+                </label>
+
+                <input
+                    type="password"
+                    name="senha_atual"
+                    required
+                >
+
+
+                <label>
+                    Nova senha
+                </label>
+
+                <input
+                    type="password"
+                    name="nova_senha"
+                    minlength="6"
+                    required
+                >
+
+
+                <label>
+                    Confirmar nova senha
+                </label>
+
+                <input
+                    type="password"
+                    name="confirmar_senha"
+                    minlength="6"
+                    required
+                >
+
+
+                <button type="submit">
+                    Alterar senha
+                </button>
+
+            </form>
+
+
+        {% elif secao == "ajuda" %}
+
+            <div class="settings-detail-header">
+                <div class="settings-detail-icon">❓</div>
+
+                <h1>
+                    Ajuda
+                </h1>
+
+                <p>
+                    Algumas informações para ajudar você
+                    a utilizar o New ONGs.
+                </p>
+            </div>
+
+
+            <section class="settings-info-card">
+
+                <div class="settings-help-item">
+
+                    <strong>
+                        Como encontro uma palestra?
+                    </strong>
+
+                    <p>
+                        Utilize a aba Pesquisa para encontrar
+                        palestras por tema, categoria ou título.
+                    </p>
+
+                </div>
+
+
+                <div class="settings-help-item">
+
+                    <strong>
+                        Onde vejo as próximas ações?
+                    </strong>
+
+                    <p>
+                        Acesse o Calendário pelo menu dos
+                        três pontinhos.
+                    </p>
+
+                </div>
+
+
+                <div class="settings-help-item">
+
+                    <strong>
+                        Quero enviar uma sugestão.
+                    </strong>
+
+                    <p>
+                        Acesse Sugestões/Feedback no menu
+                        e envie sua mensagem.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+        {% elif secao == "sobre" %}
+
+            <div class="settings-detail-header">
+                <div class="settings-detail-icon">ℹ️</div>
+
+                <h1>
+                    Sobre o New ONGs
+                </h1>
+
+                <p>
+                    Informação, prevenção e acesso à saúde.
+                </p>
+            </div>
+
+
+            <section class="settings-info-card about-card">
+
+                <h2>
+                    New ONGs
+                </h2>
+
+                <p>
+                    O New ONGs é um projeto criado para
+                    aproximar informação, educação em saúde
+                    e ações comunitárias das pessoas.
+                </p>
+
+                <p>
+                    Por meio das palestras, conteúdos,
+                    calendário de ações e iniciativas
+                    comunitárias, o projeto busca facilitar
+                    o acesso à informação de forma simples,
+                    acolhedora e acessível.
+                </p>
+
+                <strong>
+                    Informação também é cuidado. 🤎
+                </strong>
+
+            </section>
+
+        {% endif %}
+
+
+    </main>
+
+
+    <nav class="bottom-navigation">
+
+        <a href="/home" class="nav-item">
+            <span>⌂</span>
+            <small>Home</small>
+        </a>
+
+        <a href="/pesquisa" class="nav-item">
+            <span>⌕</span>
+            <small>Pesquisa</small>
+        </a>
+
+        <a
+            href="{{ url_for('notificacoes') }}"
+            class="nav-item"
+        >
+            <span>♧</span>
+            <small>Notificações</small>
+        </a>
+
+        <a href="/chat" class="nav-item">
+            <span>♡</span>
+            <small>Chat</small>
+        </a>
+
+        <a
+            href="{{ url_for('perfil') }}"
+            class="nav-item"
+        >
+            <span>○</span>
+            <small>Perfil</small>
+        </a>
+
+    </nav>
+
+</body>
+
+</html>

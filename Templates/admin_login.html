@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login Administrativo - New ONGs</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="professional-body">
+
+    <main class="professional-page">
+
+        <a href="/profissional" class="watch-back">
+            ←
+        </a>
+
+        <img
+            src="{{ url_for('static', filename='img/logo.png') }}"
+            alt="Logo New ONGs"
+            class="professional-logo"
+        >
+
+        <h1>Login Administrativo</h1>
+
+        <form method="POST" action="/admin-login">
+
+            <input
+                type="text"
+                name="username"
+                placeholder="Usuário"
+                required
+            >
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Senha"
+                required
+            >
+
+            <button type="submit" class="professional-login-button">
+                Entrar
+            </button>
+
+        </form>
+
+    </main>
+
+</body>
+
+</html>

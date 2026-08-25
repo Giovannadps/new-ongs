@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Configurações - New ONGs</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body class="home-body">
+
+    <main class="settings-page">
+
+        <a href="/home" class="watch-back">
+            ←
+        </a>
+
+
+        <div class="settings-header">
+
+            <div class="settings-icon">
+                ⚙
+            </div>
+
+            <h1>
+                Configurações
+            </h1>
+
+            <p>
+                Personalize sua experiência no New ONGs.
+            </p>
+
+        </div>
+
+
+        <section class="settings-list">
+
+
+            <a
+                href="{{ url_for('configuracoes_secao', secao='conta') }}"
+                class="settings-item"
+            >
+
+                <div class="settings-item-icon">
+                    👤
+                </div>
+
+                <div class="settings-item-text">
+
+                    <strong>
+                        Conta
+                    </strong>
+
+                    <small>
+                        Altere seus dados pessoais e informações da conta.
+                    </small>
+
+                </div>
+
+                <span class="settings-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <a
+                href="{{ url_for('configuracoes_secao', secao='acessibilidade') }}"
+                class="settings-item"
+            >
+
+                <div class="settings-item-icon">
+                    ♿
+                </div>
+
+                <div class="settings-item-text">
+
+                    <strong>
+                        Acessibilidade
+                    </strong>
+
+                    <small>
+                        Recursos para facilitar o uso do aplicativo.
+                    </small>
+
+                </div>
+
+                <span class="settings-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <a
+                href="{{ url_for('configuracoes_secao', secao='privacidade') }}"
+                class="settings-item"
+            >
+
+                <div class="settings-item-icon">
+                    🔒
+                </div>
+
+                <div class="settings-item-text">
+
+                    <strong>
+                        Privacidade e segurança
+                    </strong>
+
+                    <small>
+                        Gerencie sua senha e a segurança da sua conta.
+                    </small>
+
+                </div>
+
+                <span class="settings-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <a
+                href="{{ url_for('configuracoes_secao', secao='ajuda') }}"
+                class="settings-item"
+            >
+
+                <div class="settings-item-icon">
+                    ❓
+                </div>
+
+                <div class="settings-item-text">
+
+                    <strong>
+                        Ajuda
+                    </strong>
+
+                    <small>
+                        Encontre respostas para suas dúvidas.
+                    </small>
+
+                </div>
+
+                <span class="settings-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <a
+                href="{{ url_for('configuracoes_secao', secao='sobre') }}"
+                class="settings-item"
+            >
+
+                <div class="settings-item-icon">
+                    ℹ️
+                </div>
+
+                <div class="settings-item-text">
+
+                    <strong>
+                        Sobre o New ONGs
+                    </strong>
+
+                    <small>
+                        Conheça o projeto e seus objetivos.
+                    </small>
+
+                </div>
+
+                <span class="settings-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+        </section>
+
+    </main>
+
+
+    <nav class="bottom-navigation">
+
+        <a href="/home" class="nav-item">
+            <span>⌂</span>
+            <small>Home</small>
+        </a>
+
+        <a href="/pesquisa" class="nav-item">
+            <span>⌕</span>
+            <small>Pesquisa</small>
+        </a>
+
+        <a
+            href="{{ url_for('notificacoes') }}"
+            class="nav-item"
+        >
+            <span>♧</span>
+            <small>Notificações</small>
+        </a>
+
+        <a href="/chat" class="nav-item">
+            <span>♡</span>
+            <small>Chat</small>
+        </a>
+
+        <a
+            href="{{ url_for('perfil') }}"
+            class="nav-item"
+        >
+            <span>○</span>
+            <small>Perfil</small>
+        </a>
+
+    </nav>
+
+</body>
+
+</html>
