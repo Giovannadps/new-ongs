@@ -20,7 +20,7 @@
 </head>
 
 
-<body class="home-body">
+<body class="home-body {{ acessibilidade_css }}" data-idioma="{{ idioma }}">
 
     <main class="settings-detail-page">
 
@@ -53,6 +53,7 @@
 
             <form
                 method="POST"
+                enctype="multipart/form-data"
                 class="settings-form"
             >
 
@@ -91,6 +92,11 @@
                     required
                 >
 
+                <label>Foto de perfil</label>
+                {% if usuario['foto_perfil'] %}<img src="{{ usuario['foto_perfil'] }}" alt="Foto de perfil" class="settings-profile-photo">{% endif %}
+                <input type="file" name="foto" accept="image/png,image/jpeg,image/webp">
+                <small class="settings-photo-help">JPG, PNG ou WEBP. Máximo de 2 MB.</small>
+
 
                 <button type="submit">
                     Salvar alterações
@@ -100,56 +106,34 @@
 
 
         {% elif secao == "acessibilidade" %}
+<div class="settings-detail-header"><div class="settings-detail-icon">♿</div><h1>Acessibilidade</h1><p>Personalize texto, cores, fonte e aparência da tela.</p></div>
+<form method="POST" class="settings-form accessibility-form"><label>Tamanho do texto</label><select name="tamanho_texto"><option value="normal" {% if preferencias['tamanho_texto']=='normal' %}selected{% endif %}>Normal</option><option value="grande" {% if preferencias['tamanho_texto']=='grande' %}selected{% endif %}>Grande</option><option value="muito-grande" {% if preferencias['tamanho_texto']=='muito-grande' %}selected{% endif %}>Muito grande</option></select><label>Cores e contraste</label><select name="cor"><option value="normal" {% if preferencias['cor']=='normal' %}selected{% endif %}>Cores padrão</option><option value="alto-contraste" {% if preferencias['cor']=='alto-contraste' %}selected{% endif %}>Alto contraste</option><option value="tons-cinza" {% if preferencias['cor']=='tons-cinza' %}selected{% endif %}>Tons de cinza</option></select><label>Fonte</label><select name="fonte"><option value="normal" {% if preferencias['fonte']=='normal' %}selected{% endif %}>Padrão</option><option value="serifada" {% if preferencias['fonte']=='serifada' %}selected{% endif %}>Serifada</option><option value="legivel" {% if preferencias['fonte']=='legivel' %}selected{% endif %}>Mais legível</option></select><label>Tela</label><select name="tema"><option value="claro" {% if preferencias['tema']=='claro' %}selected{% endif %}>Tela clara</option><option value="escuro" {% if preferencias['tema']=='escuro' %}selected{% endif %}>Tela escura</option></select><button type="submit">Salvar acessibilidade</button></form>
+
+{% elif secao == "idioma" %}
 
             <div class="settings-detail-header">
-                <div class="settings-detail-icon">♿</div>
-
-                <h1>
-                    Acessibilidade
-                </h1>
-
-                <p>
-                    Recursos pensados para tornar o New ONGs
-                    mais acessível.
-                </p>
+                <div class="settings-detail-icon">🌐</div>
+                <h1>Idioma</h1>
+                <p>Escolha o idioma da interface do New ONGs. O conteúdo das palestras permanece no idioma em que foi publicado.</p>
             </div>
 
+            {% if mensagem %}<div class="settings-message">{{ mensagem }}</div>{% endif %}
 
-            <section class="settings-info-card">
-
-                <div class="settings-info-row">
-                    <strong>
-                        Texto e leitura
-                    </strong>
-
-                    <span>
-                        Em desenvolvimento
-                    </span>
-                </div>
-
-
-                <div class="settings-info-row">
-                    <strong>
-                        Contraste
-                    </strong>
-
-                    <span>
-                        Em desenvolvimento
-                    </span>
-                </div>
-
-
-                <div class="settings-info-row">
-                    <strong>
-                        Tamanho da fonte
-                    </strong>
-
-                    <span>
-                        Em desenvolvimento
-                    </span>
-                </div>
-
-            </section>
+            <form method="POST" class="settings-form">
+                <label for="idioma">Idioma do aplicativo</label>
+                <select id="idioma" name="idioma">
+                    <option value="pt-BR" {% if preferencias['idioma']=='pt-BR' %}selected{% endif %}>🇧🇷 Português (Brasil)</option>
+                    <option value="en" {% if preferencias['idioma']=='en' %}selected{% endif %}>🇺🇸 English</option>
+                    <option value="es" {% if preferencias['idioma']=='es' %}selected{% endif %}>🇪🇸 Español</option>
+                    <option value="fr" {% if preferencias['idioma']=='fr' %}selected{% endif %}>🇫🇷 Français</option>
+                    <option value="it" {% if preferencias['idioma']=='it' %}selected{% endif %}>🇮🇹 Italiano</option>
+                    <option value="de" {% if preferencias['idioma']=='de' %}selected{% endif %}>🇩🇪 Deutsch</option>
+                    <option value="ja" {% if preferencias['idioma']=='ja' %}selected{% endif %}>🇯🇵 日本語</option>
+                    <option value="ko" {% if preferencias['idioma']=='ko' %}selected{% endif %}>🇰🇷 한국어</option>
+                    <option value="zh-CN" {% if preferencias['idioma']=='zh-CN' %}selected{% endif %}>🇨🇳 简体中文</option>
+                </select>
+                <button type="submit">Salvar idioma</button>
+            </form>
 
 
         {% elif secao == "privacidade" %}
@@ -365,6 +349,6 @@
 
     </nav>
 
-</body>
+<script src="{{ url_for('static', filename='js/idiomas.js') }}"></script></body>
 
 </html>

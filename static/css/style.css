@@ -3870,3 +3870,556 @@ body {
     color: #C89116;
 }
 
+
+
+/* Funcionalidades interativas */
+.video-card-link{display:block;text-decoration:none;color:inherit}.card-actions{display:flex;gap:8px;padding:10px 0}.card-actions form{margin:0}.card-actions button,.chat-form button,.admin-card-actions button,.admin-form button{border:0;border-radius:10px;padding:9px 12px;cursor:pointer}.profile-saved-item{display:block;padding:10px 0;text-decoration:none;color:inherit;border-bottom:1px solid rgba(0,0,0,.08)}.form-error{padding:10px 12px;border-radius:10px;background:#f7e4e0;margin-bottom:12px}.chat-form{display:flex;gap:10px;flex-direction:column;margin-top:20px}.chat-form textarea{min-height:100px;padding:12px;border-radius:12px}.chat-message{padding:12px;margin:8px 0;border-radius:12px;background:rgba(255,255,255,.7);text-align:left}.admin-card-actions{display:flex;gap:8px;align-items:center}.admin-card-actions form{margin:0}.admin-form{display:flex;flex-direction:column;gap:12px}.admin-form input,.admin-form textarea{padding:12px;border-radius:10px;border:1px solid #ccc}.profile-button{display:flex;align-items:center;justify-content:center;text-decoration:none;color:inherit}
+
+/* ========================================
+   LOGIN ADMINISTRATIVO
+   Mesmo visual do login profissional
+======================================== */
+
+/* O login administrativo reutiliza .professional-login-page e
+   .professional-login-card para manter os dois acessos visualmente iguais. */
+
+/* ========================================
+   ADICIONAR PALESTRA — PAINEL ADMIN
+======================================== */
+
+.admin-form-page {
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 70px 20px 50px;
+    background: #EFEEEA;
+}
+
+.admin-form-card {
+    width: 100%;
+    max-width: 680px;
+    box-sizing: border-box;
+    padding: 34px;
+    background: #ffffff;
+    border-radius: 26px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.admin-form-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.admin-form-logo img {
+    width: 105px;
+    max-height: 55px;
+    object-fit: contain;
+}
+
+.admin-form-heading {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.admin-form-badge {
+    display: inline-block;
+    padding: 6px 11px;
+    border-radius: 20px;
+    background: #f3ead7;
+    color: #8d6411;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.admin-form-heading h1 {
+    margin: 12px 0 8px;
+    color: #171717;
+    font-size: 27px;
+}
+
+.admin-form-heading p {
+    max-width: 480px;
+    margin: 0 auto;
+    color: #777777;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.admin-palestra-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.admin-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.admin-field label {
+    color: #333333;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.admin-field label span {
+    color: #999999;
+    font-weight: 400;
+}
+
+.admin-field input,
+.admin-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #dedbd4;
+    border-radius: 13px;
+    outline: none;
+    background: #faf9f6;
+    color: #171717;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.admin-field input {
+    height: 47px;
+    padding: 0 14px;
+}
+
+.admin-field textarea {
+    min-height: 125px;
+    padding: 13px 14px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.admin-field input:focus,
+.admin-field textarea:focus {
+    border-color: #C89116;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(200, 145, 22, 0.08);
+}
+
+.admin-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.admin-publish-button {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 4px;
+    border: none;
+    border-radius: 13px;
+    background: linear-gradient(135deg, #111111, #C89116);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.admin-publish-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 7px 16px rgba(0, 0, 0, 0.14);
+}
+
+@media (max-width: 600px) {
+    .admin-form-page {
+        padding: 65px 14px 35px;
+    }
+
+    .admin-form-card {
+        padding: 27px 20px;
+        border-radius: 22px;
+    }
+
+    .admin-form-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+}
+
+
+/* ==========================================
+   CHAT PRIVADO / SEGURANÇA
+========================================== */
+.secure-chat-page {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 80px 20px 105px;
+    background: #EFEEEA;
+}
+.secure-chat-header {
+    max-width: 620px;
+    margin: 0 auto 18px;
+    text-align: center;
+}
+.secure-chat-icon {
+    width: 62px;
+    height: 62px;
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #F3E8C8;
+    border: 2px solid #E4CC91;
+    color: #C89116;
+    font-size: 26px;
+}
+.secure-chat-header h1 { margin: 0 0 7px; color: #171717; font-size: 28px; }
+.secure-chat-header p { margin: 0; color: #777; font-size: 13px; line-height: 1.5; }
+.chat-privacy-note {
+    max-width: 900px;
+    margin: 0 auto 18px;
+    padding: 12px 15px;
+    border: 1px solid #E4CC91;
+    border-radius: 13px;
+    background: #FFF9E9;
+    color: #5d512f;
+    font-size: 13px;
+    display: flex;
+    gap: 9px;
+    align-items: center;
+}
+.secure-chat-page > .form-error { max-width: 900px; margin: 0 auto 15px; }
+.secure-chat-layout {
+    width: 100%;
+    max-width: 1000px;
+    min-height: 560px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    background: #fff;
+    border: 1px solid #E5E1D8;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+.chat-professionals-list {
+    padding: 20px 14px;
+    border-right: 1px solid #E8E4DC;
+    background: #FBFAF7;
+}
+.chat-professionals-list h2 { margin: 0 8px 15px; font-size: 17px; color: #252525; }
+.chat-person {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 12px 10px;
+    margin-bottom: 5px;
+    border-radius: 12px;
+    color: inherit;
+    text-decoration: none;
+}
+.chat-person:hover, .chat-person.active { background: #F3E8C8; }
+.chat-person-avatar {
+    width: 40px; height: 40px; flex: 0 0 40px;
+    border-radius: 50%; display:flex; align-items:center; justify-content:center;
+    background:#EFEEEA; border:1px solid #E1DCCF; color:#C89116;
+}
+.chat-person strong { display:block; font-size: 14px; color:#252525; }
+.chat-person small { display:block; margin-top:3px; color:#777; font-size:11px; }
+.chat-muted { padding: 8px; color:#777; font-size:13px; line-height:1.5; }
+.chat-conversation-panel { display:flex; flex-direction:column; min-width:0; }
+.chat-conversation-header {
+    padding: 17px 20px;
+    border-bottom: 1px solid #E8E4DC;
+    display:flex; justify-content:space-between; align-items:center; gap:15px;
+}
+.chat-conversation-header strong { display:block; font-size:15px; }
+.chat-conversation-header small { display:block; margin-top:3px; color:#777; font-size:11px; }
+.chat-conversation-header span { font-size:11px; color:#777; white-space:nowrap; }
+.chat-messages {
+    flex:1; min-height:320px; max-height:450px; overflow-y:auto;
+    padding:18px; background:#F8F7F3;
+}
+.secure-message { max-width:75%; padding:10px 13px; margin:7px 0; border-radius:15px; background:#fff; border:1px solid #E5E1D8; }
+.secure-message.mine { margin-left:auto; background:#F3E8C8; border-color:#E4CC91; }
+.secure-message strong { font-size:11px; color:#555; }
+.secure-message p { margin:4px 0; font-size:13px; line-height:1.45; white-space:pre-wrap; word-break:break-word; }
+.secure-message small { color:#888; font-size:9px; }
+.chat-no-messages { margin:auto; text-align:center; padding:45px 25px; color:#777; }
+.chat-no-messages > div { font-size:34px; margin-bottom:10px; }
+.chat-no-messages h2 { margin:0 0 8px; color:#252525; font-size:17px; }
+.chat-no-messages p { margin:0; font-size:13px; line-height:1.5; }
+.secure-chat-form { padding:14px; border-top:1px solid #E8E4DC; display:flex; gap:10px; background:#fff; }
+.secure-chat-form textarea { flex:1; min-height:48px; max-height:120px; resize:vertical; padding:12px; border:1px solid #D8D3C9; border-radius:12px; font:inherit; }
+.secure-chat-form button { border:0; border-radius:12px; padding:0 17px; background:#C89116; color:#fff; cursor:pointer; font-weight:600; }
+.secure-chat-form button:hover { opacity:.9; }
+.chat-logout-link { display:block; width:max-content; margin:18px auto 0; color:#777; text-decoration:none; font-size:13px; }
+.chat-logout-link:hover { color:#171717; }
+@media (max-width: 760px) {
+    .secure-chat-layout { grid-template-columns: 1fr; }
+    .chat-professionals-list { border-right:0; border-bottom:1px solid #E8E4DC; max-height:230px; overflow-y:auto; }
+    .chat-messages { min-height:300px; }
+    .secure-chat-form { flex-direction:column; }
+    .secure-chat-form button { min-height:44px; }
+    .secure-message { max-width:88%; }
+}
+
+/* ===== CALENDARIO NOVO ===== */
+.calendar-month-card{max-width:600px;margin:0 auto 25px;background:#fff;border:1px solid #e5e1d8;border-radius:20px;padding:18px;box-shadow:0 5px 16px rgba(0,0,0,.06)}
+.calendar-month-nav{display:flex;align-items:center;justify-content:space-between;text-align:center;margin-bottom:18px}.calendar-month-nav>a{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#f3e8c8;color:#8a620c;text-decoration:none;font-size:28px}.calendar-month-nav div{display:flex;flex-direction:column}.calendar-month-nav strong{text-transform:capitalize;font-size:20px}.calendar-month-nav span{font-size:12px;color:#777;margin-top:2px}.calendar-weekdays,.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.calendar-weekdays span{text-align:center;color:#888;font-size:11px;font-weight:bold;padding:5px}.calendar-day{min-height:58px;border:1px solid #eee8dc;border-radius:10px;padding:6px;box-sizing:border-box;background:#faf9f6}.calendar-day-number{font-size:12px;font-weight:700}.calendar-day.today{border:2px solid #c89116;background:#fffaf0}.calendar-day.has-event{background:#f8f0dc}.calendar-mini-event{font-size:8px;line-height:1.15;color:#76570e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:#f3e8c8;border-radius:4px;padding:2px 3px;margin-top:2px}.calendar-events-list{max-width:600px;margin:0 auto}.calendar-events-list>h2{font-size:18px;margin:0 0 14px}.calendar-empty{max-width:600px;margin:15px auto;padding:20px;text-align:center;background:#fff;border:1px solid #e5e1d8;border-radius:16px;color:#777}
+/* ===== ADMIN GERENCIAVEL ===== */
+.admin-shortcuts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:600px;margin:25px auto}.admin-shortcuts a{background:#fff;border:1px solid #e5e1d8;border-radius:14px;padding:13px;text-decoration:none;color:#222;font-size:13px;font-weight:700}.admin-section{max-width:700px;margin:45px auto 0;text-align:left}.admin-section h2{margin:0 0 8px}.admin-section-help{color:#777;font-size:13px;line-height:1.5;margin:0 0 16px}.admin-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;background:#fff;padding:18px;border-radius:18px;border:1px solid #e5e1d8;margin-bottom:15px}.admin-form-grid input,.admin-form-grid select,.admin-form-grid textarea{width:100%;box-sizing:border-box;padding:11px;border:1px solid #ddd8cc;border-radius:10px;background:#faf9f6;font:inherit}.admin-form-grid textarea{min-height:90px;resize:vertical;grid-column:1/-1}.admin-form-grid button{grid-column:1/-1;border:0;border-radius:11px;padding:12px;background:#c89116;color:#fff;font-weight:700;cursor:pointer}.admin-tag{display:inline-block;margin-top:8px;padding:5px 9px;border-radius:20px;background:#f3e8c8;color:#76570e;font-size:10px;font-weight:700}.admin-delete-button{margin-top:12px;border:0;border-radius:9px;padding:7px 12px;background:#eee8dc;color:#333;font-weight:700;cursor:pointer}.admin-card form{margin:0}
+/* ===== ACESSIBILIDADE ===== */
+body.acess-texto-grande{font-size:112%}body.acess-texto-muito-grande{font-size:125%}body.acess-fonte-serifada{font-family:Georgia,'Times New Roman',serif!important}body.acess-fonte-legivel{font-family:Verdana,Arial,sans-serif!important}body.acess-cor-alto-contraste{filter:contrast(1.18)}body.acess-cor-tons-cinza{filter:grayscale(1)}body.acess-tema-escuro,body.acess-tema-escuro .home-header,body.acess-tema-escuro .settings-page,body.acess-tema-escuro .settings-detail-page,body.acess-tema-escuro .calendar-page,body.acess-tema-escuro .notifications-page,body.acess-tema-escuro .profile-page,body.acess-tema-escuro .feedback-page{background:#171717;color:#f5f5f5}body.acess-tema-escuro .settings-item,body.acess-tema-escuro .settings-form,body.acess-tema-escuro .settings-info-card,body.acess-tema-escuro .calendar-month-card,body.acess-tema-escuro .calendar-event,body.acess-tema-escuro .notification-card,body.acess-tema-escuro .profile-card,body.acess-tema-escuro .feedback-form,body.acess-tema-escuro .feedback-success{background:#242424;color:#f5f5f5;border-color:#444}body.acess-tema-escuro h1,body.acess-tema-escuro h2,body.acess-tema-escuro h3,body.acess-tema-escuro strong,body.acess-tema-escuro label{color:#f5f5f5}body.acess-tema-escuro p,body.acess-tema-escuro small{color:#d0d0d0}body.acess-tema-escuro input,body.acess-tema-escuro select,body.acess-tema-escuro textarea{background:#303030;color:#fff;border-color:#555}.settings-form select{width:100%;box-sizing:border-box;margin-bottom:18px;padding:12px 13px;border:1px solid #ddd8cc;border-radius:10px;background:#faf9f6;color:#333;font-family:inherit;outline:none}.settings-profile-photo{width:90px;height:90px;object-fit:cover;border-radius:50%;border:3px solid #e4cc91;margin:0 auto 12px;display:block}.settings-photo-help{display:block;color:#777;margin:-8px 0 18px}.profile-avatar{overflow:hidden}.profile-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+@media(max-width:600px){.admin-form-grid{grid-template-columns:1fr}.admin-shortcuts{grid-template-columns:1fr 1fr}.calendar-day{min-height:50px;padding:4px}.calendar-mini-event{font-size:7px}}
+.admin-edit-link{display:inline-block;margin-top:12px;margin-right:8px;padding:7px 12px;border-radius:9px;background:#171717;color:#fff;text-decoration:none;font-size:12px;font-weight:700}.admin-edit-form{max-width:650px;margin:20px auto}.admin-edit-form button{grid-column:1/-1}
+body.acess-tema-escuro{background:#171717;color:#f5f5f5}body.acess-tema-escuro input,body.acess-tema-escuro select,body.acess-tema-escuro textarea{background:#303030;color:#fff;border-color:#555}
+
+/* ==========================================================
+   ACESSIBILIDADE - CORREÇÃO GLOBAL
+   Estas regras ficam por último para prevalecer sobre estilos
+   antigos e evitar texto/botões invisíveis no tema escuro.
+========================================================== */
+body.acess-tema-escuro {
+    background: #121212 !important;
+    color: #f5f5f5 !important;
+    filter: none !important;
+}
+
+body.acess-tema-escuro .home-header,
+body.acess-tema-escuro .bottom-navigation,
+body.acess-tema-escuro .side-menu,
+body.acess-tema-escuro .search-container,
+body.acess-tema-escuro .featured-card,
+body.acess-tema-escuro .video-card,
+body.acess-tema-escuro .calendar-month-card,
+body.acess-tema-escuro .calendar-empty,
+body.acess-tema-escuro .calendar-event,
+body.acess-tema-escuro .notification-card,
+body.acess-tema-escuro .profile-card,
+body.acess-tema-escuro .settings-item,
+body.acess-tema-escuro .settings-form,
+body.acess-tema-escuro .settings-info-card,
+body.acess-tema-escuro .feedback-form,
+body.acess-tema-escuro .feedback-success,
+body.acess-tema-escuro .secure-chat-layout,
+body.acess-tema-escuro .chat-professionals-list,
+body.acess-tema-escuro .secure-chat-form,
+body.acess-tema-escuro .chat-messages,
+body.acess-tema-escuro .secure-message,
+body.acess-tema-escuro .professional-option,
+body.acess-tema-escuro .professional-login-card,
+body.acess-tema-escuro .admin-card,
+body.acess-tema-escuro .admin-form-grid {
+    background: #222 !important;
+    color: #f5f5f5 !important;
+    border-color: #444 !important;
+}
+
+body.acess-tema-escuro .home-header,
+body.acess-tema-escuro .bottom-navigation {
+    background: #1b1b1b !important;
+}
+
+body.acess-tema-escuro .side-menu {
+    background: #1e1e1e !important;
+    box-shadow: 10px 0 30px rgba(0,0,0,.45) !important;
+}
+
+body.acess-tema-escuro .side-menu-item,
+body.acess-tema-escuro .side-menu-header,
+body.acess-tema-escuro .nav-item,
+body.acess-tema-escuro .menu-button,
+body.acess-tema-escuro .profile-button,
+body.acess-tema-escuro .search-container input,
+body.acess-tema-escuro .settings-item-text strong,
+body.acess-tema-escuro .settings-item-text small,
+body.acess-tema-escuro .settings-arrow,
+body.acess-tema-escuro .calendar-header h1,
+body.acess-tema-escuro .calendar-header p,
+body.acess-tema-escuro .calendar-month-nav strong,
+body.acess-tema-escuro .calendar-day-number,
+body.acess-tema-escuro .calendar-events-list h2,
+body.acess-tema-escuro .calendar-event-info h2,
+body.acess-tema-escuro .calendar-event-info p,
+body.acess-tema-escuro .notifications-header h1,
+body.acess-tema-escuro .notifications-header p,
+body.acess-tema-escuro .notification-content h2,
+body.acess-tema-escuro .notification-content p,
+body.acess-tema-escuro .profile-header h1,
+body.acess-tema-escuro .profile-header p,
+body.acess-tema-escuro .profile-item strong,
+body.acess-tema-escuro .profile-item small,
+body.acess-tema-escuro .profile-card h2,
+body.acess-tema-escuro .profile-card p,
+body.acess-tema-escuro .search-page h1,
+body.acess-tema-escuro .search-results h2,
+body.acess-tema-escuro .video-info h3,
+body.acess-tema-escuro .video-info p,
+body.acess-tema-escuro .secure-chat-header h1,
+body.acess-tema-escuro .secure-chat-header p,
+body.acess-tema-escuro .chat-professionals-list h2,
+body.acess-tema-escuro .chat-person strong,
+body.acess-tema-escuro .chat-conversation-header strong,
+body.acess-tema-escuro .chat-conversation-header small,
+body.acess-tema-escuro .chat-no-messages h2,
+body.acess-tema-escuro .chat-no-messages p,
+body.acess-tema-escuro .settings-detail-header h1,
+body.acess-tema-escuro .settings-detail-header p,
+body.acess-tema-escuro .settings-form label,
+body.acess-tema-escuro .settings-help-item strong,
+body.acess-tema-escuro .settings-help-item p,
+body.acess-tema-escuro .admin-section h2,
+body.acess-tema-escuro .admin-section-help,
+body.acess-tema-escuro .admin-card h3,
+body.acess-tema-escuro .admin-card p,
+body.acess-tema-escuro .admin-welcome,
+body.acess-tema-escuro .professional-option-text h2,
+body.acess-tema-escuro .professional-option-text p {
+    color: #f5f5f5 !important;
+}
+
+body.acess-tema-escuro .side-menu-item small,
+body.acess-tema-escuro .calendar-weekdays span,
+body.acess-tema-escuro .calendar-month-nav span,
+body.acess-tema-escuro .chat-person small,
+body.acess-tema-escuro .chat-muted,
+body.acess-tema-escuro .notification-details,
+body.acess-tema-escuro .settings-photo-help,
+body.acess-tema-escuro .admin-section-help {
+    color: #bdbdbd !important;
+}
+
+body.acess-tema-escuro .settings-form input,
+body.acess-tema-escuro .settings-form select,
+body.acess-tema-escuro .settings-form textarea,
+body.acess-tema-escuro .search-container input,
+body.acess-tema-escuro .search-page-form input,
+body.acess-tema-escuro .secure-chat-form textarea,
+body.acess-tema-escuro .admin-form-grid input,
+body.acess-tema-escuro .admin-form-grid select,
+body.acess-tema-escuro .admin-form-grid textarea,
+body.acess-tema-escuro .admin-field input,
+body.acess-tema-escuro .admin-field textarea {
+    background: #171717 !important;
+    color: #f5f5f5 !important;
+    border-color: #555 !important;
+}
+
+body.acess-tema-escuro .settings-form button,
+body.acess-tema-escuro .feedback-submit,
+body.acess-tema-escuro .secure-chat-form button,
+body.acess-tema-escuro .admin-form-grid button,
+body.acess-tema-escuro .admin-publish-button,
+body.acess-tema-escuro .admin-add-button,
+body.acess-tema-escuro .card-actions button,
+body.acess-tema-escuro .featured-button,
+body.acess-tema-escuro .logout-button {
+    color: #fff !important;
+}
+
+body.acess-tema-escuro .calendar-day {
+    background: #1b1b1b !important;
+    border-color: #444 !important;
+}
+body.acess-tema-escuro .calendar-day.today {
+    background: #332b17 !important;
+    border-color: #c89116 !important;
+}
+body.acess-tema-escuro .calendar-day.has-event,
+body.acess-tema-escuro .calendar-mini-event {
+    background: #3a321e !important;
+    color: #f2d78c !important;
+}
+body.acess-tema-escuro .calendar-month-nav>a {
+    background: #3a321e !important;
+    color: #f2d78c !important;
+}
+body.acess-tema-escuro .chat-privacy-note {
+    background: #302b1c !important;
+    color: #f2d78c !important;
+    border-color: #6a5a2d !important;
+}
+body.acess-tema-escuro .secure-message.mine {
+    background: #3a321e !important;
+    border-color: #6a5a2d !important;
+}
+
+/* O tamanho anterior só alterava o body, mas vários textos do projeto
+   usam px. Agora os principais elementos textuais realmente crescem. */
+body.acess-texto-grande h1,
+body.acess-texto-grande h2,
+body.acess-texto-grande h3,
+body.acess-texto-grande p,
+body.acess-texto-grande a,
+body.acess-texto-grande button,
+body.acess-texto-grande label,
+body.acess-texto-grande input,
+body.acess-texto-grande select,
+body.acess-texto-grande textarea,
+body.acess-texto-grande strong,
+body.acess-texto-grande small,
+body.acess-texto-grande span,
+body.acess-texto-muito-grande h1,
+body.acess-texto-muito-grande h2,
+body.acess-texto-muito-grande h3,
+body.acess-texto-muito-grande p,
+body.acess-texto-muito-grande a,
+body.acess-texto-muito-grande button,
+body.acess-texto-muito-grande label,
+body.acess-texto-muito-grande input,
+body.acess-texto-muito-grande select,
+body.acess-texto-muito-grande textarea,
+body.acess-texto-muito-grande strong,
+body.acess-texto-muito-grande small,
+body.acess-texto-muito-grande span {
+    line-height: 1.35 !important;
+}
+body.acess-texto-grande p,
+body.acess-texto-grande a,
+body.acess-texto-grande button,
+body.acess-texto-grande label,
+body.acess-texto-grande input,
+body.acess-texto-grande select,
+body.acess-texto-grande textarea,
+body.acess-texto-grande strong,
+body.acess-texto-grande small,
+body.acess-texto-grande span,
+body.acess-texto-grande li { font-size: calc(1em + 2px) !important; }
+body.acess-texto-muito-grande p,
+body.acess-texto-muito-grande a,
+body.acess-texto-muito-grande button,
+body.acess-texto-muito-grande label,
+body.acess-texto-muito-grande input,
+body.acess-texto-muito-grande select,
+body.acess-texto-muito-grande textarea,
+body.acess-texto-muito-grande strong,
+body.acess-texto-muito-grande small,
+body.acess-texto-muito-grande span,
+body.acess-texto-muito-grande li { font-size: calc(1em + 5px) !important; }
+body.acess-texto-grande h1 { font-size: 32px !important; }
+body.acess-texto-muito-grande h1 { font-size: 38px !important; }
+body.acess-texto-grande h2 { font-size: 24px !important; }
+body.acess-texto-muito-grande h2 { font-size: 29px !important; }
+body.acess-texto-grande h3 { font-size: 19px !important; }
+body.acess-texto-muito-grande h3 { font-size: 23px !important; }
+
+/* Ícones e controles de navegação não precisam crescer junto com o texto. */
+body.acess-texto-grande .menu-button,
+body.acess-texto-muito-grande .menu-button,
+body.acess-texto-grande .profile-button,
+body.acess-texto-muito-grande .profile-button,
+body.acess-texto-grande .play-button,
+body.acess-texto-muito-grande .play-button,
+body.acess-texto-grande .settings-icon,
+body.acess-texto-muito-grande .settings-icon,
+body.acess-texto-grande .settings-detail-icon,
+body.acess-texto-muito-grande .settings-detail-icon,
+body.acess-texto-grande .notification-icon,
+body.acess-texto-muito-grande .notification-icon { font-size: initial !important; }
+
+/* Alto contraste e tons de cinza não devem quebrar o layout com filter no body. */
+body.acess-cor-alto-contraste { filter: none !important; }
+body.acess-cor-alto-contraste * { outline-color: #000 !important; }
+body.acess-cor-tons-cinza { filter: grayscale(1) !important; }

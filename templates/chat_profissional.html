@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Conversas profissionais - New ONGs</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="home-body {{ acessibilidade_css }}" data-idioma="{{ idioma }}">
+<main class="secure-chat-page professional-chat-page">
+<a href="{{ url_for('profissional') }}" class="watch-back">←</a>
+<header class="secure-chat-header"><div class="secure-chat-icon">🩺</div><h1>Conversas profissionais</h1><p>Atenda as pessoas que entraram em contato com você.</p></header>
+<div class="chat-privacy-note">🔒 <span>Você só pode acessar as conversas destinadas a você. Outros profissionais e usuários não têm acesso a elas.</span></div>
+<section class="secure-chat-layout">
+<aside class="chat-professionals-list"><h2>Conversas</h2>
+{% for conversa in conversas %}<a href="{{ url_for('chat_profissional', conversa_id=conversa['id']) }}" class="chat-person {% if conversa_atual and conversa_atual['id'] == conversa['id'] %}active{% endif %}"><div class="chat-person-avatar">●</div><div><strong>{{ conversa['username'] }}</strong><small>{{ conversa['email'] }}</small></div></a>{% else %}<p class="chat-muted">Você ainda não recebeu mensagens.</p>{% endfor %}</aside>
+<section class="chat-conversation-panel">
+{% if conversa_atual %}
+<div class="chat-conversation-header"><div><strong>{{ conversa_atual['username'] }}</strong><small>{{ conversa_atual['email'] }}</small></div><span>🔒 Privado</span></div>
+<div class="chat-messages">{% for mensagem in mensagens %}<div class="secure-message {% if mensagem['remetente_tipo'] == 'profissional' %}mine{% else %}theirs{% endif %}"><strong>{{ mensagem['remetente_nome'] }}</strong><p>{{ mensagem['mensagem'] }}</p><small>{{ mensagem['criado_em'] }}</small></div>{% else %}<div class="chat-no-messages"><div>💬</div><h2>Nenhuma mensagem ainda</h2><p>Quando o usuário enviar uma mensagem, ela aparecerá aqui.</p></div>{% endfor %}</div>
+<form method="POST" class="secure-chat-form"><input type="hidden" name="conversa_id" value="{{ conversa_atual['id'] }}"><textarea name="mensagem" placeholder="Responder..." required></textarea><button type="submit">Enviar resposta</button></form>
+{% else %}<div class="chat-no-messages"><div>💬</div><h2>Escolha uma conversa</h2><p>As conversas são separadas por usuário e ficam disponíveis somente para você.</p></div>{% endif %}
+</section></section>
+<a href="{{ url_for('profissional_logout') }}" class="chat-logout-link">Sair da área profissional</a>
+</main><script src="{{ url_for('static', filename='js/idiomas.js') }}"></script></body></html>

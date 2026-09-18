@@ -1,104 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Chat - New ONGs</title>
-
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='css/style.css') }}"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat com profissional - New ONGs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+<body class="home-body {{ acessibilidade_css }}" data-idioma="{{ idioma }}">
+<main class="secure-chat-page">
+    <a href="{{ url_for('home') }}" class="watch-back">←</a>
+    <header class="secure-chat-header">
+        <div class="secure-chat-icon">♡</div>
+        <h1>Chat com profissional</h1>
+        <p>Converse de forma privada com um profissional da New ONGs.</p>
+    </header>
 
+    <div class="chat-privacy-note">🔒 <span>Suas conversas são privadas. Você só pode acessar as suas próprias mensagens.</span></div>
 
-<body class="home-body">
+    {% if erro %}<div class="form-error">{{ erro }}</div>{% endif %}
 
-    <main class="chat-page">
+    <section class="secure-chat-layout">
+        <aside class="chat-professionals-list">
+            <h2>Profissionais</h2>
+            {% for profissional in profissionais %}
+            <a href="{{ url_for('chat', profissional_id=profissional['id']) }}" class="chat-person {% if profissional_atual and profissional_atual['id'] == profissional['id'] %}active{% endif %}">
+                <div class="chat-person-avatar">🩺</div>
+                <div><strong>{{ profissional['nome'] }}</strong><small>{{ profissional['especialidade'] }}</small></div>
+            </a>
+            {% else %}
+            <p class="chat-muted">Nenhum profissional cadastrado no momento.</p>
+            {% endfor %}
+        </aside>
 
-        <a href="/home" class="watch-back">
-            ←
-        </a>
-
-
-        <div class="chat-header">
-
-            <div class="chat-icon">
-                ♡
-            </div>
-
-            <h1>
-                Chat
-            </h1>
-
-            <p>
-                Converse e tire suas dúvidas com a equipe New ONGs.
-            </p>
-
-        </div>
-
-
-        <section class="chat-empty">
-
-            <div class="chat-empty-icon">
-                💬
-            </div>
-
-            <h2>
-                O chat estará disponível em breve
-            </h2>
-
-            <p>
-                Estamos preparando um espaço seguro para
-                comunicação e acolhimento dentro do New ONGs.
-            </p>
-
+        <section class="chat-conversation-panel">
+            {% if profissional_atual %}
+                <div class="chat-conversation-header">
+                    <div><strong>{{ profissional_atual['nome'] }}</strong><small>{{ profissional_atual['especialidade'] }}</small></div>
+                    <span>🔒 Privado</span>
+                </div>
+                <div class="chat-messages">
+                    {% for mensagem in mensagens %}
+                    <div class="secure-message {% if mensagem['remetente_tipo'] == 'usuario' %}mine{% else %}theirs{% endif %}">
+                        <strong>{{ mensagem['remetente_nome'] }}</strong>
+                        <p>{{ mensagem['mensagem'] }}</p>
+                        <small>{{ mensagem['criado_em'] }}</small>
+                    </div>
+                    {% else %}
+                    <div class="chat-no-messages"><div>💬</div><h2>Conversa privada</h2><p>Envie uma mensagem para iniciar a conversa com este profissional.</p></div>
+                    {% endfor %}
+                </div>
+                <form method="POST" class="secure-chat-form">
+                    <input type="hidden" name="profissional_id" value="{{ profissional_atual['id'] }}">
+                    <textarea name="mensagem" placeholder="Digite sua mensagem..." required></textarea>
+                    <button type="submit">Enviar mensagem</button>
+                </form>
+            {% else %}
+                <div class="chat-no-messages"><div>🩺</div><h2>Escolha um profissional</h2><p>Selecione um profissional para iniciar uma conversa privada.</p></div>
+            {% endif %}
         </section>
-
-    </main>
-
-
-    <nav class="bottom-navigation">
-
-        <a href="/home" class="nav-item">
-            <span>⌂</span>
-            <small>Home</small>
-        </a>
-
-
-        <a href="/pesquisa" class="nav-item">
-            <span>⌕</span>
-            <small>Pesquisa</small>
-        </a>
-
-
-        <a href="{{ url_for('notificacoes') }}" class="nav-item">
-            <span>♧</span>
-            <small>Notificações</small>
-        </a>
-
-
-        <a href="/chat" class="nav-item active">
-            <span>♡</span>
-            <small>Chat</small>
-        </a>
-
-
-        <a href="{{ url_for('perfil') }}" class="nav-item">
-            <span>○</span>
-            <small>Perfil</small>
-        </a>
-
-    </nav>
-
-</body>
-
+    </section>
+</main>
+<nav class="bottom-navigation"><a href="{{ url_for('home') }}" class="nav-item"><span>⌂</span><small>Home</small></a><a href="{{ url_for('pesquisa') }}" class="nav-item"><span>⌕</span><small>Pesquisa</small></a><a href="{{ url_for('notificacoes') }}" class="nav-item"><span>♧</span><small>Notificações</small></a><a href="{{ url_for('chat') }}" class="nav-item active"><span>♡</span><small>Chat</small></a><a href="{{ url_for('perfil') }}" class="nav-item"><span>○</span><small>Perfil</small></a></nav>
+<script src="{{ url_for('static', filename='js/idiomas.js') }}"></script></body>
 </html>

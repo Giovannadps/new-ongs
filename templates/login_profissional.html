@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
-<body class="home-body">
+<body class="home-body {{ acessibilidade_css }}" data-idioma="{{ idioma }}">
 
     <main class="professional-login-page">
 
@@ -34,11 +34,13 @@
             </h1>
 
             <p>
-                Entre com suas credenciais profissionais.
+                Entre com suas credenciais para acessar suas conversas privadas.
             </p>
 
 
-            <form method="POST">
+            {% if erro %}<p class="form-error">{{ erro }}</p>{% endif %}
+
+        <form method="POST">
 
                 <label for="email">
                     E-mail
@@ -76,6 +78,6 @@
 
     </main>
 
-</body>
+<script src="{{ url_for('static', filename='js/idiomas.js') }}"></script></body>
 
 </html>

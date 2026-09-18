@@ -10,66 +10,68 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
-<body class="professional-body">
+<body class="home-body {{ acessibilidade_css }}" data-idioma="{{ idioma }}">
 
-    <main class="admin-page">
+    <main class="admin-form-page">
 
-        <a href="/admin" class="professional-back">
+        <a href="/admin" class="watch-back">
             ←
         </a>
 
-        <img
-            src="{{ url_for('static', filename='img/logo.png') }}"
-            alt="Logo New ONGs"
-            class="professional-logo"
-        >
+        <div class="admin-form-card">
 
-        <h1>Adicionar palestra</h1>
+            <div class="admin-form-logo">
+                <img
+                    src="{{ url_for('static', filename='img/logo.png') }}"
+                    alt="New ONGs"
+                >
+            </div>
 
-        <form method="POST" action="/admin/adicionar">
+            <div class="admin-form-heading">
+                <span class="admin-form-badge">ADMINISTRADOR</span>
+                <h1>Adicionar palestra</h1>
+                <p>Preencha as informações abaixo para publicar uma nova palestra no New ONGs.</p>
+            </div>
 
-            <input
-                type="text"
-                name="titulo"
-                placeholder="Título da palestra"
-                required
-            >
+            <form method="POST" action="/admin/adicionar" class="admin-palestra-form">
 
-            <textarea
-                name="descricao"
-                placeholder="Descrição da palestra"
-                rows="5"
-                required
-            ></textarea>
+                <div class="admin-field">
+                    <label for="titulo">Título da palestra</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Ex.: Saúde sexual: conheça seu corpo" required>
+                </div>
 
-            <input
-                type="text"
-                name="categoria"
-                placeholder="Categoria"
-                required
-            >
+                <div class="admin-field">
+                    <label for="descricao">Descrição</label>
+                    <textarea id="descricao" name="descricao" placeholder="Escreva uma breve descrição sobre o conteúdo da palestra..." rows="5" required></textarea>
+                </div>
 
-            <input
-                type="url"
-                name="video_url"
-                placeholder="Link do vídeo do YouTube"
-                required
-            >
+                <div class="admin-form-grid">
+                    <div class="admin-field">
+                        <label for="categoria">Categoria</label>
+                        <input type="text" id="categoria" name="categoria" placeholder="Ex.: Prevenção" required>
+                    </div>
 
-            <input
-                type="url"
-                name="capa_url"
-                placeholder="Link da imagem de capa (opcional)"
-            >
+                    <div class="admin-field">
+                        <label for="capa_url">Capa <span>(opcional)</span></label>
+                        <input type="url" id="capa_url" name="capa_url" placeholder="Link da imagem de capa">
+                    </div>
+                </div>
 
-            <button type="submit" class="admin-add-button">
-                Publicar palestra
-            </button>
+                <div class="admin-field">
+                    <label for="video_url">Link do vídeo</label>
+                    <input type="url" id="video_url" name="video_url" placeholder="Cole aqui o link do vídeo do YouTube" required>
+                </div>
 
-        </form>
+                <button type="submit" class="admin-publish-button">
+                    Publicar palestra
+                </button>
+
+            </form>
+
+        </div>
 
     </main>
 
-</body>
+<script src="{{ url_for('static', filename='js/idiomas.js') }}"></script></body>
 
 </html>

@@ -20,7 +20,7 @@
 </head>
 
 
-<body class="home-body">
+<body class="home-body {{ acessibilidade_css }}" data-idioma="{{ idioma }}">
 
     <main class="settings-page">
 
@@ -102,6 +102,19 @@
                     →
                 </span>
 
+            </a>
+
+
+            <a
+                href="{{ url_for('configuracoes_secao', secao='idioma') }}"
+                class="settings-item"
+            >
+                <div class="settings-item-icon">🌐</div>
+                <div class="settings-item-text">
+                    <strong>Idioma</strong>
+                    <small>Escolha o idioma da interface do aplicativo.</small>
+                </div>
+                <span class="settings-arrow">→</span>
             </a>
 
 
@@ -229,6 +242,6 @@
 
     </nav>
 
-</body>
+<script src="{{ url_for('static', filename='js/idiomas.js') }}"></script></body>
 
 </html>

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
-<body>
+<body class="{{ acessibilidade_css }}" data-idioma="{{ idioma }}">
 
     <main class="cadastro-page">
 
@@ -23,6 +23,8 @@
         <h1>
             Criar conta de usuário
         </h1>
+
+        {% if erro %}<p class="form-error">{{ erro }}</p>{% endif %}
 
         <form method="POST" action="/cadastro-usuario">
 
@@ -77,6 +79,6 @@
 
     </main>
 
-</body>
+<script src="{{ url_for('static', filename='js/idiomas.js') }}"></script></body>
 
 </html>

@@ -20,7 +20,7 @@
 </head>
 
 
-<body class="home-body">
+<body class="home-body {{ acessibilidade_css }}" data-idioma="{{ idioma }}">
 
     <main class="feedback-page">
 
@@ -176,6 +176,6 @@
 
     </nav>
 
-</body>
+<script src="{{ url_for('static', filename='js/idiomas.js') }}"></script></body>
 
 </html>

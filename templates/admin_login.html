@@ -5,51 +5,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Login Administrativo - New ONGs</title>
+    <title>Login administrativo - New ONGs</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
-<body class="professional-body">
+<body class="home-body {{ acessibilidade_css }}" data-idioma="{{ idioma }}">
 
-    <main class="professional-page">
+    <main class="professional-login-page">
 
         <a href="/profissional" class="watch-back">
             ←
         </a>
 
-        <img
-            src="{{ url_for('static', filename='img/logo.png') }}"
-            alt="Logo New ONGs"
-            class="professional-logo"
-        >
+        <div class="professional-login-card">
 
-        <h1>Login Administrativo</h1>
+            <div class="professional-login-logo">
+                <img
+                    src="{{ url_for('static', filename='img/logo.png') }}"
+                    alt="New ONGs"
+                >
+            </div>
 
-        <form method="POST" action="/admin-login">
+            <h1>
+                Login administrativo
+            </h1>
 
-            <input
-                type="text"
-                name="username"
-                placeholder="Usuário"
-                required
-            >
+            <p>
+                Entre com suas credenciais de administrador.
+            </p>
 
-            <input
-                type="password"
-                name="password"
-                placeholder="Senha"
-                required
-            >
+            {% if erro %}<p class="form-error">{{ erro }}</p>{% endif %}
 
-            <button type="submit" class="professional-login-button">
-                Entrar
-            </button>
+            <form method="POST" action="/admin-login">
 
-        </form>
+                <label for="username">
+                    Usuário
+                </label>
+
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Seu usuário"
+                    required
+                >
+
+                <label for="password">
+                    Senha
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Sua senha"
+                    required
+                >
+
+                <button type="submit">
+                    Entrar
+                </button>
+
+            </form>
+
+        </div>
 
     </main>
 
-</body>
+<script src="{{ url_for('static', filename='js/idiomas.js') }}"></script></body>
 
 </html>

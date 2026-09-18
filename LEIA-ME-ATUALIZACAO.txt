@@ -1,0 +1,41 @@
+NEW ONGs - ATUALIZAÇÃO
+
+IMPORTANTE SOBRE O BANCO DE DADOS
+---------------------------------
+Este pacote NÃO inclui o arquivo newongs.db de propósito.
+
+O seu newongs.db contém as contas, palestras, curtidas, salvos, conversas,
+notificações, feedbacks e demais dados do seu aplicativo. Não substitua esse
+arquivo por outro ao atualizar o código.
+
+COMO ATUALIZAR
+--------------
+1. Faça uma cópia do seu arquivo atual newongs.db.
+2. Extraia este ZIP por cima da pasta atual do projeto.
+3. Se o Windows perguntar sobre substituir arquivos, substitua os arquivos
+do código, templates e static.
+4. NÃO substitua nem apague o seu newongs.db atual.
+5. Execute normalmente: python app.py
+
+O aplicativo cria/migra somente as tabelas/colunas que estiverem faltando.
+Ele não recria nem repõe palestras excluídas.
+
+MUDANÇAS DESTA VERSÃO
+----------------------
+- Tema escuro corrigido para não esconder textos, botões e campos.
+- Tamanho de texto Grande/Muito grande agora altera os textos de verdade.
+- Calendário com meses e dias em português.
+- Calendário continua usando o mês atual automaticamente.
+- Preferências de acessibilidade ficam separadas da preferência de idioma.
+- Nova seção de Idioma em Configurações.
+- Idiomas disponíveis: Português, English, Español, Français, Italiano,
+  Deutsch, 日本語, 한국어 e 简体中文.
+- A preferência de idioma também é usada como preferência de legenda do
+  player do YouTube quando o vídeo possui legendas disponíveis.
+- Os dados do banco existente não são incluídos neste pacote.
+
+OBSERVAÇÃO SOBRE RENDER
+-----------------------
+Se o aplicativo estiver hospedado no Render usando SQLite sem armazenamento
+persistente, o banco pode não sobreviver a determinados redeploys/reinícios.
+Para produção, use armazenamento persistente ou um banco externo.
